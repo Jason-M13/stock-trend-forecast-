@@ -1,28 +1,11 @@
-import os 
-import requests
-import time 
-from dotenv import load_dotenv
+import os
+from client import configure, get_adx, get_bbands, get_tSeries
 
-def configure():
-    load_dotenv()
-
-def get_adx(ticker_symbol,api):
-    url = f"https://api.twelvedata.com/adx?symbol={ticker_symbol}&interval=1min&apikey={api}"
-    response = requests.get(url).json()
-   
-    latest = response["values"][0]
-    adx_value = latest["adx"]
-    timestamp = latest["datetime"]
-    print(f"{ticker_symbol} ADX: {adx_value} at {timestamp}")
-
-
-
-def main():
+if __name__ == "__main__":
     configure()
     ticker = "MSFT"
     api_key = os.getenv("api_key")
-    get_adx(ticker,api_key)
 
-
-if __name__ == "__main__":
-    main()
+    adx = get_adx(ticker,api_key)
+    b_bands = get_bbands(ticker,api_key)
+    timeSeries = get_tSeries(ticker,api_key)
