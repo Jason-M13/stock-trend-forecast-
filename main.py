@@ -1,11 +1,16 @@
 import os
-from client import configure, get_adx, get_bbands, get_tSeries
+#from dataConversion import prepFrame
+from client import Client
+
+
+def run(ticker, interval):  
+    client = Client.configure()
+
 
 if __name__ == "__main__":
-    configure()
-    ticker = "MSFT"
-    api_key = os.getenv("api_key")
+    #Selection
+    print("Options: 1day, 1week, 1month")
+    interval = input("Choose an interval to train the model with: ")
+    ticker   = input("Choose a stock ticker (e.g., AAPL, MSFT): ")
 
-    adx = get_adx(ticker,api_key)
-    b_bands = get_bbands(ticker,api_key)
-    timeSeries = get_tSeries(ticker,api_key)
+    run(ticker, interval)
