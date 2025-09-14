@@ -35,7 +35,6 @@ class Client:
 
         return(df)
 
-
     def get_bbands(self,ticker_symbol, interval):
         url = f"{self.base_url}/bbands?symbol={ticker_symbol}&interval={interval}&time_period=20&sd=2&outputsize=5000&apikey={self.api_key}"
         response = requests.get(url).json()
@@ -56,8 +55,6 @@ class Client:
         df = df.loc[df.index >= cutoff]
 
         return(df)
-
-        
 
     def get_tSeries(self, ticker_symbol, interval):
         url = f"{self.base_url}/time_series?symbol={ticker_symbol}&interval={interval}&outputsize=5000&apikey={self.api_key}"
