@@ -30,7 +30,7 @@ class Client:
         df = df.sort_values("datetime").set_index("datetime")
 
         # keep only last 5 years
-        cutoff = pd.Timestamp.today() - pd.DateOffset(years=5)
+        cutoff = pd.Timestamp.today() - pd.DateOffset(years=10)
         df = df.loc[df.index >= cutoff]
 
         return(df)
@@ -51,7 +51,7 @@ class Client:
 
 
         df = df.sort_values("datetime").set_index("datetime")
-        cutoff = pd.Timestamp.today() - pd.DateOffset(years=5)
+        cutoff = pd.Timestamp.today() - pd.DateOffset(years=10)
         df = df.loc[df.index >= cutoff]
 
         return(df)
@@ -70,7 +70,7 @@ class Client:
         df["volume"] = pd.to_numeric(df["volume"]).astype("Int64")
 
         df = df.sort_values("datetime").set_index("datetime")
-        cutoff = pd.Timestamp.today() - pd.DateOffset(years=5)
+        cutoff = pd.Timestamp.today() - pd.DateOffset(years=10)
         df = df.loc[df.index >= cutoff]
 
         return(df)

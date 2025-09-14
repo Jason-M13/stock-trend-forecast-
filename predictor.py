@@ -18,6 +18,8 @@ class Predictor:
 
         self.model.fit(x_train, y_train)
         acc = self.model.score(x_test, y_test)
+        self.x_test, self.y_test = x_test, y_test
+
         print(f"Test Accuracy: {acc}")
 
         return x,y

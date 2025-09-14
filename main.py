@@ -1,6 +1,7 @@
 from dataConversion import merge_tables, build_features, binary_convert
 from client import Client
 from predictor import Predictor
+from visuals import Visualizer
 
 def run(ticker, interval):  
     client = Client.configure()
@@ -23,8 +24,16 @@ def run(ticker, interval):
     predictor = Predictor(feature_cols)
     predictor.train(df)
     predictor.predict(df)
-   
 
+    print(df)
+
+    #visualizing 
+    probability = predictor.model.predict_proba(predictor.x_test)[:, 1]
+
+    viz = Visualizer(predictor.x_test, predictor.y_test, probability)
+
+    viz.plot_backtest()
+   
 if __name__ == "__main__":
     #Selection
     print("Options: 1day, 1week, 1month")
