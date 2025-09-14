@@ -1,7 +1,7 @@
 # Stock Trend Predictor 
 
 ## Overview 
-A Python project that uses ** stock indicators and machine learning** to predict whether a stock’s price will go **Up** or **Down** in the next time interval, along with a **confidence rate** and **test accuracy**. The project uses data from [Twelve Data API](https://twelvedata.com/) to fetch stock data and applies stock features + logistic regression for predictions. The results can be **visualized** to check accuracy on past historical data.  
+A Python project that uses **stock indicators and machine learning** to predict whether a stock’s price will go **Up** or **Down** in the next time interval, along with a **confidence rate** and **test accuracy**. The project uses data from [Twelve Data API](https://twelvedata.com/) to fetch stock data and applies stock features + logistic regression for predictions. The results can be **visualized** to check accuracy on past historical data.  
 
 ---
 
